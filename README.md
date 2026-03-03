@@ -31,7 +31,7 @@ How sensitive is the Greek Day-Ahead Market (DAM) to a severe natural gas price 
 
 ---
 
-## 📈 Results
+## Results
 
 ### Average MCP Impact
 
