@@ -1,82 +1,139 @@
-# Hormuz Gas Shock Stress Test on Greek DAM
-
-## Research Question
-
-How sensitive is the Greek Day-Ahead Market (DAM) to a severe natural gas price shock, such as one triggered by a geopolitical disruption (e.g., Strait of Hormuz closure)?
+# Greek DAM Gas Shock Stress Test  
+## Sensitivity Analysis Under a Hormuz Disruption Scenario
 
 ---
 
-## Data
+## 1. Research Question
 
-- Hourly Greek DAM MCP (January 2025)
-- 744 hourly observations
+How sensitive is the Greek Day-Ahead Market (DAM) to a severe natural gas price shock triggered by a geopolitical disruption, such as a prolonged closure of the Strait of Hormuz?
+
+This project evaluates how such a shock could impact:
+
+- The average wholesale electricity price (MCP)
+- The frequency of extreme price events
+
+---
+
+## 2. Data
+
+- Hourly Greek DAM Market Clearing Price (MCP)
+- January 2025 (744 hourly observations)
 - Source: HEnEx DAM Results
 - Bidding Zone: Mainland Greece
 
 ---
 
-## Methodology
+## 3. Baseline Market Behavior
 
-1. Identify "gas-like" hours:
-   - Defined as the top 25% highest MCP hours (75th percentile threshold).
+The following figure shows the hourly MCP for January 2025.
 
-2. Apply stress-test scenarios to these hours:
+![Greek DAM MCP January 2025](figures/01_mcp_timeseries.png)
+
+The market exhibits significant volatility, including multiple high-price spike events exceeding 200 €/MWh and a maximum above 450 €/MWh.
+
+Baseline metrics:
+
+- Average MCP: 135 €/MWh
+- Extreme hours (>200 €/MWh): 45 hours (~1.5 hours/day)
+
+---
+
+## 4. Methodology
+
+1. Gas-driven hours were approximated using a statistical proxy:
+   - Top 25% highest MCP hours (75th percentile threshold).
+
+2. Stress-test scenarios were applied to these hours:
+
    - +50% gas price shock (moderate)
    - +100% gas price shock (severe)
-   - +130% gas price shock (extreme scenario based on market stress estimates, e.g., Goldman Sachs)
+   - +130% gas price shock (extreme scenario based on market stress estimates such as Goldman Sachs)
 
-3. Measure impact on:
+3. Impact was measured on:
    - Average monthly MCP
-   - Daily average hours above 200€/MWh (extreme price exposure)
+   - Average daily hours above 200 €/MWh
+
+This is a stress test, not a price forecast.
 
 ---
 
-## Results
+## 5. Impact on Average MCP
 
-### Average MCP Impact
+![Average MCP per Scenario](figures/02_average_mcp_scenarios.png)
 
-| Scenario | Avg MCP (€/MWh) |
-|----------|----------------|
-| Base | 135 |
-| +50% | 159 |
-| +100% | 183 |
-| +130% | 197 |
+| Scenario | Average MCP (€/MWh) |
+|-----------|---------------------|
+| Base      | 135 |
+| +50%      | 159 |
+| +100%     | 183 |
+| +130%     | 197 |
 
-Under the extreme +130% scenario, the average DAM price increases by **+45.7%**.
+Under the extreme +130% gas shock scenario, the average DAM price increases by:
 
----
+**+45.7%**
 
-### Extreme Price Exposure (>200€/MWh)
-
-Base scenario:
-~1.5 high-price hours per day
-
-Extreme scenario:
-~6 high-price hours per day
-
-A moderate +50% gas shock already quadruples daily extreme price exposure.
+This demonstrates substantial structural exposure of the Greek wholesale electricity market to gas price shocks.
 
 ---
 
-## Interpretation
+## 6. Impact on Extreme Price Exposure
 
-The Greek electricity market shows significant structural exposure to natural gas price shocks.
+![Daily Extreme Price Exposure](figures/03_daily_extreme_hours.png)
 
-While average prices increase materially (+45.7% in extreme scenarios), the most critical impact is the amplification of extreme price events, which substantially increases market volatility and risk.
+Average daily hours above 200 €/MWh:
+
+- Base scenario: ~1.5 hours/day  
+- Extreme (+130%) scenario: ~6 hours/day  
+
+Even a moderate +50% gas shock quadruples the frequency of high-price hours.
+
+The most significant effect of the shock is not only on average prices, but on the amplification of extreme price events.
 
 ---
 
-## Limitations
+## 7. Shock Transmission Mechanism
+
+![Shock Transmission Mechanism](figures/04_shock_transmission_mechanism.png)
+
+This diagram illustrates the transmission channel:
+
+Strait of Hormuz disruption  
+→ Global LNG supply risk  
+→ European TTF gas price increase  
+→ Gas marginal cost increase  
+→ Greek DAM MCP increase  
+→ Amplification of extreme price hours  
+
+---
+
+## 8. Interpretation
+
+The Greek electricity market shows meaningful structural dependence on natural gas.
+
+In extreme geopolitical stress scenarios:
+
+- Wholesale electricity prices increase materially
+- Extreme price volatility intensifies
+- Market risk exposure expands significantly
+
+The amplification of high-price hours suggests increased volatility, risk premiums, and potential downstream impacts on retail tariffs and industrial consumers.
+
+---
+
+## 9. Limitations
 
 - Gas-driven hours identified via statistical proxy (top 25% MCP)
 - No direct marginal unit data used
-- Simplified linear shock application
+- Linear shock application assumption
+- Single-month analysis
 
-This analysis is a stress test, not a price forecast.
+Future improvements may include:
+
+- Direct marginal fuel identification
+- Load correlation analysis
+- RES penetration sensitivity
+- Multi-month stress simulations
 
 ---
 
 ## Project Structure
-
-- `notebooks/` – analysis notebook
-- `figures/` – generated visualizations
