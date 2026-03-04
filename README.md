@@ -135,17 +135,17 @@ Future improvements may include:
 - Multi-month stress simulations
 
 ---
-
 ## Project Structure
 
-
-├── README.md # Project documentation
-├── figures/ # Generated visual outputs
-│ ├── 01_mcp_timeseries.png # January MCP time series
-│ ├── 02_average_mcp_scenarios.png # Average MCP per gas shock scenario
-│ ├── 03_daily_extreme_hours.png # Daily extreme price exposure
-│ └── 04_shock_transmission_mechanism.png # Geopolitical shock transmission diagram
+```
+.
+├── README.md                         # Project documentation
+├── figures/                          # Generated visual outputs
+│   ├── 01_mcp_timeseries.png         # January MCP time series
+│   ├── 02_average_mcp_scenarios.png  # Average MCP per gas shock scenario
+│   ├── 03_daily_extreme_hours.png    # Daily extreme price exposure
+│   └── 04_shock_transmission_mechanism.png  # Shock transmission diagram
 │
 ├── notebooks/
-│ └── hormuz_gas_shock.ipynb # Main analysis notebook
-
+│   └── hormuz_gas_shock.ipynb        # Main analysis notebook
+```
