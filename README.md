@@ -137,3 +137,16 @@ Future improvements may include:
 ---
 
 ## Project Structure
+
+greek-dam-gas-shock-stress-test/
+│
+├── figures/
+│   ├── 01_mcp_timeseries.png
+│   ├── 02_average_mcp_scenarios.png
+│   ├── 03_daily_extreme_hours.png
+│   └── 04_shock_transmission_mechanism.png
+│
+├── notebooks/
+│   └── hormuz_gas_shock.ipynb
+│
+└── README.md
